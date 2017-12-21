@@ -10,11 +10,11 @@ import { HomeComponent } from './admin/home/home.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 
 import { routing } from './app.routing';
-import { APP_CONFIG, AppConfig } from './api.config';
 import { LoginService } from './login.service';
 import { AuthGuard } from './_guards/auth.guard';
 import { AuthenticationService } from './_services/authentication.service';
 import { UserService } from './_services/user.service';
+import { AppConfigModule } from './api.config.module';
 
 
 @NgModule({
@@ -28,13 +28,13 @@ import { UserService } from './_services/user.service';
     routing,
     FormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    AppConfigModule
   ],
   providers: [LoginService,
     AuthGuard,
     AuthenticationService,
-    UserService,
-    { provide: APP_CONFIG, useValue: AppConfig }],
+    UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

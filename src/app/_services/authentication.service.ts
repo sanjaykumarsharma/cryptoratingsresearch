@@ -1,8 +1,8 @@
-﻿import { APP_CONFIG, AppConfig } from '../api.config';
-import { Injectable, InjectionToken, Inject, forwardRef } from '@angular/core';
+﻿import { Injectable, InjectionToken, Inject, forwardRef } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { APP_CONFIG, AppConfig } from '../api.config.module';
 //import { APP_CONFIG, AppConfig } from '../api.config';
 
 @Injectable()
@@ -10,10 +10,10 @@ export class AuthenticationService {
     public token: string;
     apiEndpoint = '';
 
-    constructor( private http: Http) {
+    constructor( @Inject(APP_CONFIG) private config: AppConfig, private http: Http) {
     // constructor(@Inject(APP_CONFIG) config: AppConfig, private http: Http) {
-        //this.apiEndpoint = config.apiEndpoint;
-        this.apiEndpoint = 'http://localhost/creatcareers_api/api';
+        this.apiEndpoint = config.apiEndpoint;
+        //this.apiEndpoint = 'http://localhost/creatcareers_api/api';
         // set token if saved in local storage
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;
