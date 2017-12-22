@@ -20,7 +20,9 @@
   
   .content-wrapper {
     min-height: calc(100vh - 56px);
-    padding-top: 1rem; }
+    padding-top: 1rem; 
+    padding-top: 55px;
+  }
   
   .scroll-to-top {
     position: fixed;
