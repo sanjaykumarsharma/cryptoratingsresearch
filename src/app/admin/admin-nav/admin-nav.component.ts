@@ -6,16 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-nav.component.css']
 })
 export class AdminNavComponent implements OnInit {
-  
-  mastertoggle : boolean = true;
 
   constructor() { }
 
   ngOnInit() {
-  }
 
-  masterToggle(){
-    this.mastertoggle = !this.mastertoggle ;
   }
 
 }

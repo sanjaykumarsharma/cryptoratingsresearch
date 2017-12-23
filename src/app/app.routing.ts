@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './admin/home/home.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { TagsComponent } from './admin/tags/tags.component';
 //import { AuthGuard } from './_guards/auth.guard';
 
 // import { LoginComponent } from './login/login.component';
@@ -13,7 +14,8 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 
 const appRoutes: Routes = [
     { path: 'admin/home', component: HomeComponent },
-    { path: 'admin/login', component: AdminLoginComponent }
+    { path: 'admin/login', component: AdminLoginComponent },
+    { path: 'admin/tags', component: TagsComponent }
     // otherwise redirect to home
     //{ path: '**', redirectTo: '' }
 ];
