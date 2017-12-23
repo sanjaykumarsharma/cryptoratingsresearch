@@ -32,6 +32,8 @@ export class TagsComponent implements OnInit, OnDestroy {
             tags => this.tags = tags,
             error => this.showError(error)
         );
+
+        console.log(this.tags);
     }
 
     ngOnDestroy() {

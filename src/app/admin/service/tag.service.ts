@@ -31,25 +31,25 @@ export class TagService {
     }
 
     getTags(): Observable<Tag[]> {
-        return this.http.get('http://localhost/cryptoratings_api/api/tags')
+        return this.http.get('http://localhost/creatcareers_api/api/tags')
             .map(response => response.json() as Tag[])
             .catch(TagService.handleError);
     }
 
-    createTag(employee: Tag): Observable<Tag> {
-        return this.http.post('http://localhost/cryptoratings_api/api/tags', employee)
+    createTag(tag: Tag): Observable<Tag> {
+        return this.http.post('http://localhost/creatcareers_api/api/tags', tag)
             .map(response => response.json() as Tag)
             .catch(TagService.handleError);
     }
 
-    updateTag(employee: Tag): Observable<any> {
-        return this.http.put('http://localhost/cryptoratings_api/api/tags', employee)
+    updateTag(tag: Tag): Observable<any> {
+        return this.http.put('http://localhost/creatcareers_api/api/tags', tag)
             .map(response => response.json())
             .catch(TagService.handleError);
     }
 
     deleteTag(id: string): Observable<any> {
-        return this.http.delete('http://localhost/cryptoratings_api/api/tags/' + id)
+        return this.http.delete('http://localhost/creatcareers_api/api/tags/' + id)
             .map(response => response.json())
             .catch(TagService.handleError);
     }

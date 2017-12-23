@@ -11,10 +11,8 @@
             <p-messages [value]="msgs"></p-messages>
 
             <p-dataTable [value]="tags" selectionMode="single" [(selection)]="selectedTag" [paginator]="true" rows="15" [responsive]="true" [alwaysShowPaginator]="false">
-                <p-column field="firstName" header="First Name" [sortable]="true"></p-column>
-                <p-column field="lastName" header="Last Name" [sortable]="true"></p-column>
-                <p-column field="profession" header="Profession" [sortable]="true"></p-column>
-                <p-column field="department" header="Department" [sortable]="true"></p-column>
+                <p-column field="id" header="ID" [sortable]="true"></p-column>
+                <p-column field="tag" header="Tag" [sortable]="true"></p-column>
                 <p-footer>
                     <button pButton type="button" label="Add" icon="fa-plus" (click)="add()"></button>
                     <button pButton type="button" label="Edit" icon="fa-pencil" (click)="edit()" [disabled]="!selectedTag"></button>
@@ -27,36 +25,22 @@
                     <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="tagForDialog">
                         <div class="ui-g ui-g-12 ui-g-nopad">
                             <div class="ui-g-12 ui-md-3 ui-label">
-                                <label for="fname">First Name</label>
+                                <label for="id">ID</label>
                             </div>
                             <div class="ui-g-12 ui-md-9">
-                                <input pInputText id="fname" name="fname" required [(ngModel)]="tagForDialog.firstName" />
+                                <input pInputText id="id" name="id" required [(ngModel)]="tagForDialog.id" />
                             </div>
                         </div>
                         <div class="ui-g ui-g-12 ui-g-nopad">
                             <div class="ui-g-12 ui-md-3 ui-label">
-                                <label for="lname">Last Name</label>
+                                <label for="tag">Tag</label>
                             </div>
                             <div class="ui-g-12 ui-md-9">
-                                <input pInputText id="lname" name="lname" required [(ngModel)]="tagForDialog.lastName" />
+                                <input pInputText id="tag" name="tag" required [(ngModel)]="tagForDialog.tag" />
                             </div>
                         </div>
-                        <div class="ui-g ui-g-12 ui-g-nopad">
-                            <div class="ui-g-12 ui-md-3 ui-label">
-                                <label for="prof">Profession</label>
-                            </div>
-                            <div class="ui-g-12 ui-md-9">
-                                <input pInputText id="prof" name="prof" required [(ngModel)]="tagForDialog.profession" />
-                            </div>
-                        </div>
-                        <div class="ui-g ui-g-12 ui-g-nopad">
-                            <div class="ui-g-12 ui-md-3 ui-label">
-                                <label for="depart">Department</label>
-                            </div>
-                            <div class="ui-g-12 ui-md-9">
-                                <input pInputText id="depart" name="depart" required [(ngModel)]="tagForDialog.department" />
-                            </div>
-                        </div>
+                        
+                        
                     </div>
                 </form>
                 <p-footer>
