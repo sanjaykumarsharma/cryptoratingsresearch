@@ -13,7 +13,7 @@ import 'rxjs/add/operator/finally';
 })
 export class TagsComponent implements OnInit, OnDestroy {
 
-  tags: Tag[];
+    tags: Tag[];
     selectedTag: Tag;
     tagForDialog: Tag;
     displayDialog: boolean;
@@ -23,6 +23,8 @@ export class TagsComponent implements OnInit, OnDestroy {
     add$: Subscription;
     edit$: Subscription;
     delete$: Subscription;
+
+    addForm = true;
 
     constructor(private tagService: TagService) {
     }
@@ -48,15 +50,16 @@ export class TagsComponent implements OnInit, OnDestroy {
         this.tagForDialog = {
             id: null, tag: null
         };
-
+        this.addForm=true;
         this.displayDialog = true;
+        console.log(this.tagForDialog);
     }
 
     edit() {
         if (this.selectedTag == null) {
             return;
         }
-
+        this.addForm=false;
         // create a clone of the selected tag
         this.tagForDialog = Object.assign({}, this.selectedTag);
 
@@ -67,6 +70,8 @@ export class TagsComponent implements OnInit, OnDestroy {
         if (this.selectedTag == null) {
             return;
         }
+
+        console.log(this.selectedTag); 
 
         this.delete$ = this.tagService.deleteTag(this.selectedTag.id)
             .finally(() => {
@@ -84,7 +89,24 @@ export class TagsComponent implements OnInit, OnDestroy {
     }
 
     save() {
-        if (this.tagForDialog.id) {
+        console.log(this.addForm);
+        if (this.addForm === true) {
+            console.log('calling create');
+            // create
+            this.add$ = this.tagService.createTag(this.tagForDialog)
+                .finally(() => {
+                    this.tagForDialog = null;
+                    this.selectedTag = null;
+                    this.displayDialog = false;
+                })
+                .subscribe(
+                    (tag: Tag) => {
+                        this.tags = [...this.tags, tag];
+                        this.showSuccess('Tag was successfully created');
+                    },
+                    error => this.showError(error)
+                );
+        } else if(this.addForm === false) {
             // update
             this.edit$ = this.tagService.updateTag(this.tagForDialog)
                 .finally(() => {
@@ -105,21 +127,7 @@ export class TagsComponent implements OnInit, OnDestroy {
                     },
                     error => this.showError(error)
                 );
-        } else {
-            // create
-            this.add$ = this.tagService.createTag(this.tagForDialog)
-                .finally(() => {
-                    this.tagForDialog = null;
-                    this.selectedTag = null;
-                    this.displayDialog = false;
-                })
-                .subscribe(
-                    (tag: Tag) => {
-                        this.tags = [...this.tags, tag];
-                        this.showSuccess('Tag was successfully created');
-                    },
-                    error => this.showError(error)
-                );
+            
         }
     }
 

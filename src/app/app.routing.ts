@@ -1,3 +1,4 @@
+import { AdminMainLayoutComponent } from './admin-main-layout/admin-main-layout.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './admin/home/home.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
@@ -13,9 +14,12 @@ import { TagsComponent } from './admin/tags/tags.component';
 // import { AdmissionsComponent } from './admissions/admissions.component';
 
 const appRoutes: Routes = [
-    { path: 'admin/home', component: HomeComponent },
     { path: 'admin/login', component: AdminLoginComponent },
-    { path: 'admin/tags', component: TagsComponent }
+    { path: 'admin', component: AdminMainLayoutComponent, children: [
+        { path: 'home', component: HomeComponent },
+        { path: 'tags', component: TagsComponent }
+    ] },
+    
     // otherwise redirect to home
     //{ path: '**', redirectTo: '' }
 ];
