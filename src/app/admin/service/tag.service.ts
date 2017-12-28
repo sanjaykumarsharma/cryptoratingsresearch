@@ -49,7 +49,7 @@ export class TagService {
     }
 
     deleteTag(id: string): Observable<any> {
-        return this.http.delete('http://localhost/creatcareers_api/api/tags/' + id)
+        return this.http.delete('http://localhost/creatcareers_api/api/tags/:' + id)
             .map(response => response.json())
             .catch(TagService.handleError);
     }
