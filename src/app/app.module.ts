@@ -31,6 +31,7 @@ import { TagsComponent } from './admin/tags/tags.component';
 // services
 import { UserService } from './_services/user.service';
 import { TagService } from './admin/service/tag.service';
+import { IndexComponent } from './index/index.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { TagService } from './admin/service/tag.service';
     AdminLoginComponent,
     AdminNavComponent,
     AdminSidebarComponent,
-    TagsComponent
+    TagsComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
