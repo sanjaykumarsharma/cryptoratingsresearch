@@ -1,5 +1,8 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
+declare var particlesJS: any;
+declare var WOW: any;
+
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -132,7 +135,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
       });
 
 
-    //   wow js
+    // wow js
     new WOW().init();
 
   }

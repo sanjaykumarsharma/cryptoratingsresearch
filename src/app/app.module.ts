@@ -26,12 +26,14 @@ import {DataTableModule} from 'primeng/components/datatable/datatable';
 import {DialogModule} from 'primeng/components/dialog/dialog';
 import {MessagesModule} from 'primeng/components/messages/messages';
 
-import { TagsComponent } from './admin/tags/tags.component';
 
 // services
 import { UserService } from './_services/user.service';
 import { TagService } from './admin/service/tag.service';
-import { AdminMainLayoutComponent } from './admin-main-layout/admin-main-layout.component';
+// Components
+import { IndexComponent } from './index/index.component';
+import { TagsComponent } from './admin/tags/tags.component';
+import { AdminMainLayoutComponent } from './admin/admin-main-layout/admin-main-layout.component';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { AdminMainLayoutComponent } from './admin-main-layout/admin-main-layout.
     AdminNavComponent,
     AdminSidebarComponent,
     TagsComponent,
-    AdminMainLayoutComponent
+    AdminMainLayoutComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
