@@ -5,9 +5,11 @@ import { TagsComponent } from './admin/tags/tags.component';
 import { IndexComponent } from './index/index.component';
 import { AdminMainLayoutComponent } from './admin/admin-main-layout/admin-main-layout.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { TempComponent } from './temp/temp.component';
 
 const appRoutes: Routes = [
-    { path: '', component: IndexComponent },
+    { path: '', component: TempComponent },
+    { path: 'demo', component: IndexComponent },
     { path: 'admin/login', component: AdminLoginComponent },
     { path: 'admin', component: AdminMainLayoutComponent, canActivateChild: [AuthGuard], children: [
         { path: 'home', component: HomeComponent },

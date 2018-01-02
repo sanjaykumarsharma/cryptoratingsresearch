@@ -34,6 +34,8 @@ import { TagService } from './admin/service/tag.service';
 import { IndexComponent } from './index/index.component';
 import { TagsComponent } from './admin/tags/tags.component';
 import { AdminMainLayoutComponent } from './admin/admin-main-layout/admin-main-layout.component';
+import { TempComponent } from './temp/temp.component';
+import { AuthService } from './_guards/auth.service';
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { AdminMainLayoutComponent } from './admin/admin-main-layout/admin-main-l
     AdminSidebarComponent,
     TagsComponent,
     AdminMainLayoutComponent,
-    IndexComponent
+    IndexComponent,
+    TempComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import { AdminMainLayoutComponent } from './admin/admin-main-layout/admin-main-l
     MessagesModule
   ],
   providers: [LoginService,
+    AuthService,
     AuthGuard,
     AuthenticationService,
     UserService,

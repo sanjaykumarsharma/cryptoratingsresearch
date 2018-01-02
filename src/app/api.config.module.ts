@@ -9,7 +9,7 @@ export class AppConfig {
 }
 
 export const APP_DI_CONFIG: AppConfig = {
-  apiEndpoint: 'http://localhost/creatcareers_api/api'
+  apiEndpoint: 'http://localhost/cryptoratings_api/api'
 };
 
 @NgModule({
