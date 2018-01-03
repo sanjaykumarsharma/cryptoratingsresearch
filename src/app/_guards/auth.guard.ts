@@ -21,7 +21,7 @@
           (authenticated: boolean) => {
             if (authenticated) {
               console.log('you are authorised');
-              console.log(localStorage.getItem('currentUser'));
+              console.log(JSON.parse(localStorage.getItem('currentUser')));
               return true;
             } else {
               console.log(localStorage.getItem('currentUser'));

@@ -1,10 +1,10 @@
 export class AuthService {
-    loggedIn = true;
+    loggedIn = false;
 
     isAuthenticated() {
       const promise = new Promise(
         (resolve, reject) => {
-          resolve(this.login);
+          resolve(this.login() );
         }
       );
       return promise;
@@ -13,8 +13,11 @@ export class AuthService {
     login() {
       if (localStorage.getItem('currentUser')) {
         // logged in so return true
+        console.log('calling login method');
         console.log(localStorage.getItem('currentUser'));
          return true;
+      }else {
+        return false;
       }
     }
 
